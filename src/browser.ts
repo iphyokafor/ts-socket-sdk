@@ -7,8 +7,10 @@ import { v4 as uuidv4 } from "uuid";
 export class ClientSDK {
   public io: Socket;
   public socketMessageUl: HTMLElement;
+
   constructor(url: string) {
     this.io = io(url);
+
     // check if there's a ul with an id of socket-messages
     // if not, create one
     let socketMessages = document.getElementById("socket-messages");
@@ -19,12 +21,14 @@ export class ClientSDK {
     }
     this.socketMessageUl = socketMessages;
   }
+
   public on(event: EventEnum, callback: any) {
     this.io.on(event, (message: Message) => {
       this.logMessage("RECV", message);
       callback(message);
     });
   }
+
   public send(data: MessageContent) {
     let message: Message = {
       content: data,
@@ -40,11 +44,12 @@ export class ClientSDK {
       typeof message.content === "string"
         ? message.content
         : JSON.stringify(message.content);
-    let logMessage = `
-${type}: ${content}`;
+    let logMessage = `${type}: ${content}`;
+
     // append to the ul socketMessageUl
     this.socketMessageUl.innerHTML += `<li>${logMessage}</li>`;
   }
+
   public disconnect() {
     this.io.disconnect();
   }
@@ -54,6 +59,7 @@ declare global {
     sdk: any;
   }
 }
+
 window.sdk = new ClientSDK("http://localhost:3000");
 window.sdk.on("message", (message: Message) => {
   console.log(message);
