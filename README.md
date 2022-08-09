@@ -149,7 +149,9 @@ Carry out a simple test by creating a demo project with a basic html file linked
 
 - On your browser console, execute a simple test by pasting this message:
 
-    `sdk.send('finally it works🎉🤗')`
+    `sdk.send('finally it works🎉🤗')` or 
+    
+    `sdk.send({foo: "bar"})`
     
 - Observe the webpage, the message will be displayed. Also, observe your browser console and the terminal of your code editor. 
   A `log.txt` file is generated with the message logs.
