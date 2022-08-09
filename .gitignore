@@ -105,3 +105,4 @@ dist
 
 /js
 /node_modules
+/dist
