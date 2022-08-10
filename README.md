@@ -79,28 +79,28 @@ sdk.disconnect()
 
 * To install packages, run
 
-```bash 
+```ts 
 
 npm install
 ```
 
 * To build the NodeJs SDK, run
 
-```bash
+```ts
 
 npm run build
 ```
 
 * To start the server, run
 
-```bash 
+```ts 
 
 npm run dev
 ```
 
 * To build the browser SDK, run
 
-```bash 
+```ts 
 
 npm run build-prod
 
